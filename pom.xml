@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>pom</packaging>
+
+    <artifactId>shine-framework</artifactId>
+    <groupId>io.github.SilenceShine</groupId>
+    <version>${revision}</version>
+    <name>shine-framework</name>
+    <description>Shine 脚手架</description>
+    <url>https://github.com/SilenceShine/shine-framework.git</url>
+
+    <developers>
+        <developer>
+            <id>SilenceShine</id>
+            <name>SilenceShine</name>
+            <email>xuansy0127@gmail.com</email>
+            <organization>SilenceShine</organization>
+            <organizationUrl>https://github.com/SilenceShine</organizationUrl>
+        </developer>
+    </developers>
+
+    <properties>
+        <revision>0.3.1-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+    </properties>
+
+</project>
