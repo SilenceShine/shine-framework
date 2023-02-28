@@ -2,12 +2,18 @@ package shine.framework.util.json.module;
 
 import com.fasterxml.jackson.core.util.VersionUtil;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import shine.framework.constant.DateConstant;
 
 import java.io.Serial;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -24,10 +30,22 @@ public final class ShineModule extends SimpleModule {
 
     public ShineModule() {
         super(VersionUtil.parseVersion(VERSION, GROUP_ID, ARTIFACT_ID));
-        LocalDateTimeSerializer serializer = new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(DateConstant.PATTERN));
-        LocalDateTimeDeserializer deserializer = new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(DateConstant.PATTERN));
-        addSerializer(LocalDateTime.class, serializer);
-        addDeserializer(LocalDateTime.class, deserializer);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DateConstant.PATTERN);
+
+        LocalTimeSerializer localTimeSerializer = new LocalTimeSerializer(formatter);
+        LocalDateSerializer localDateSerializer = new LocalDateSerializer(formatter);
+        LocalDateTimeSerializer localDateTimeSerializer = new LocalDateTimeSerializer(formatter);
+        addSerializer(LocalTime.class, localTimeSerializer);
+        addSerializer(LocalDate.class, localDateSerializer);
+        addSerializer(LocalDateTime.class, localDateTimeSerializer);
+
+        LocalTimeDeserializer localTimeDeserializer = new LocalTimeDeserializer(formatter);
+        LocalDateDeserializer localDateDeserializer = new LocalDateDeserializer(formatter);
+        LocalDateTimeDeserializer localDateTimeDeserializer = new LocalDateTimeDeserializer(formatter);
+        addDeserializer(LocalTime.class, localTimeDeserializer);
+        addDeserializer(LocalDate.class, localDateDeserializer);
+        addDeserializer(LocalDateTime.class, localDateTimeDeserializer);
     }
 
 }

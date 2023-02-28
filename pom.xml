@@ -50,18 +50,24 @@
         <module>shine-framework-constant</module>
         <module>shine-framework-core</module>
         <module>shine-framework-util</module>
+        <module>shine-framework-jackson</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
-                <artifactId>shine-framework-util</artifactId>
+                <artifactId>shine-framework-constant</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
-                <artifactId>shine-framework-constant</artifactId>
+                <artifactId>shine-framework-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-util</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
