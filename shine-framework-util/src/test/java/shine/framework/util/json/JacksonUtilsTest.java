@@ -24,8 +24,8 @@ public class JacksonUtilsTest {
 
     public static void test() {
         LocalDateTime now = LocalDateTime.now();
-        LogUtil.info(JacksonUtilsTest.class, "now:{}", JacksonUtils.toJson(now));
-        System.out.println(JacksonUtils.toJson(now));
+        LogUtil.info(JacksonUtilsTest.class, "now:{}", JacksonUtil.toJson(now));
+        System.out.println(JacksonUtil.toJson(now));
     }
 
     public static void override() {
@@ -33,9 +33,9 @@ public class JacksonUtilsTest {
         SimpleModule simpleModule = new SimpleModule(version);
         LocalDateTimeSerializer serializer = new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         simpleModule.addSerializer(LocalDateTime.class, serializer);
-        JacksonUtils.addModule(simpleModule);
+        JacksonUtil.addModule(simpleModule);
         LocalDateTime now = LocalDateTime.now();
-        System.out.println(JacksonUtils.toJson(now));
+        System.out.println(JacksonUtil.toJson(now));
     }
 
 }

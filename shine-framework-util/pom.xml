@@ -43,6 +43,11 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core-java11</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

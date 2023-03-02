@@ -1,0 +1,2 @@
+shine.framework.spring.cache.config.RedisConfiguration
+shine.framework.spring.cache.config.ReactiveRedisConfiguration

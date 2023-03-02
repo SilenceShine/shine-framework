@@ -37,20 +37,29 @@
         <native-maven-plugin.version>0.9.18</native-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
 
+        <!--    spring    -->
+        <spring-boot-dependencies.version>3.0.3</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2022.0.1</spring-cloud-dependencies.version>
+        <spring-cloud-commons-dependencies.version>4.0.1</spring-cloud-commons-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC1</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-square-dependencies.version>0.5.0-SNAPSHOT</spring-cloud-square-dependencies.version>
+
         <!--    util    -->
         <reactor-core.version>3.5.3</reactor-core.version>
         <mutiny.version>2.1.0</mutiny.version>
         <slf4j-api.version>2.0.6</slf4j-api.version>
         <hutool.version>5.8.12</hutool.version>
         <jackson.version>2.14.1</jackson.version>
+        <oshi.version>6.4.0</oshi.version>
         <lombok.version>1.18.26</lombok.version>
     </properties>
 
     <modules>
         <module>shine-framework-constant</module>
         <module>shine-framework-core</module>
-        <module>shine-framework-util</module>
         <module>shine-framework-jackson</module>
+        <module>shine-framework-spring</module>
+        <module>shine-framework-util</module>
     </modules>
 
     <dependencyManagement>
@@ -68,6 +77,16 @@
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-util</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -104,6 +123,11 @@
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core-java11</artifactId>
+                <version>${oshi.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

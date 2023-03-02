@@ -2,7 +2,6 @@ package shine.framework.jackson.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.experimental.Accessors;
 import shine.framework.core.exception.ExceptionEnum;
 import shine.framework.core.exception.ResultStatus;
 
@@ -13,7 +12,6 @@ import shine.framework.core.exception.ResultStatus;
  * @since 1.0
  */
 @Getter
-@Accessors(fluent = true)
 @AllArgsConstructor
 public enum JacksonException implements ExceptionEnum {
     BIG_DECIMAL_DESERIALIZER(ResultStatus.BAD_REQUEST, "BigDecimal 反序列化异常,值:%s !"),
@@ -21,5 +19,15 @@ public enum JacksonException implements ExceptionEnum {
     ;
     private final int code;
     private final String message;
+
+    @Override
+    public Integer code() {
+        return code;
+    }
+
+    @Override
+    public String message() {
+        return message;
+    }
 
 }

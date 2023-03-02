@@ -1,7 +1,7 @@
 package shine.framework.core.util;
 
 import shine.framework.core.dto.R;
-import shine.framework.util.json.JacksonUtils;
+import shine.framework.util.json.JacksonUtil;
 import shine.framework.util.log.LogUtil;
 import shine.framework.util.net.RetryUtil;
 
@@ -57,7 +57,7 @@ public class HttpUtil {
         AssertsUtil.isTrue(null != r, SERVER_ERROR, () -> format(hint, NOT_CONNECT));
         AssertsUtil.isTrue(r.getCode() == OK, SERVER_ERROR, r::getMessage);
         if (valueNotEmpty) AssertsUtil.isNotNull(r.getData(), () -> format(hint, RETURN_NULL));
-        LogUtil.debug(HttpUtil.class, "远程访问结果:{}", () -> LogUtil.params(JacksonUtils.toJson(r)));
+        LogUtil.debug(HttpUtil.class, "远程访问结果:{}", () -> LogUtil.params(JacksonUtil.toJson(r)));
         return r.getData();
     }
 

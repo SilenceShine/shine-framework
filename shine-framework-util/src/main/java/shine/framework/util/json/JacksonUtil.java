@@ -19,7 +19,7 @@ import shine.framework.util.log.LogUtil;
  */
 @Getter
 @Setter
-public class JacksonUtils {
+public class JacksonUtil {
 
     private static ObjectMapper objectMapper;
 
@@ -40,7 +40,7 @@ public class JacksonUtils {
         try {
             return objectMapper.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
-            LogUtil.error(JacksonUtils.class, "jackson error:{}", e.getMessage());
+            LogUtil.error(JacksonUtil.class, "jackson error:{}", e.getMessage());
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class JacksonUtils {
         try {
             return objectMapper.readValue(jsonValue, valueType);
         } catch (JsonProcessingException e) {
-            LogUtil.error(JacksonUtils.class, "jackson error:{}", e.getMessage());
+            LogUtil.error(JacksonUtil.class, "jackson error:{}", e.getMessage());
         }
         return null;
     }
@@ -58,7 +58,7 @@ public class JacksonUtils {
         try {
             return objectMapper.readValue(jsonValue, valueType);
         } catch (JsonProcessingException e) {
-            LogUtil.error(JacksonUtils.class, "jackson error:{}", e.getMessage());
+            LogUtil.error(JacksonUtil.class, "jackson error:{}", e.getMessage());
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class JacksonUtils {
         try {
             return objectMapper.readValue(jsonValue, reference);
         } catch (JsonProcessingException e) {
-            LogUtil.error(JacksonUtils.class, "jackson error:{}", e.getMessage());
+            LogUtil.error(JacksonUtil.class, "jackson error:{}", e.getMessage());
         }
         return null;
     }
