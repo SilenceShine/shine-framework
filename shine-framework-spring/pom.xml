@@ -17,6 +17,8 @@
         <module>shine-framework-spring-cache-starter</module>
         <module>shine-framework-spring-core</module>
         <module>shine-framework-spring-env</module>
+        <module>shine-framework-spring-exception</module>
+        <module>shine-framework-spring-log</module>
         <module>shine-framework-spring-util</module>
     </modules>
 
