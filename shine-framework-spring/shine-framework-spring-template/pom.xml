@@ -7,19 +7,22 @@
         <groupId>io.github.SilenceShine</groupId>
         <artifactId>shine-framework-spring</artifactId>
         <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>shine-framework-spring-util</artifactId>
+    <artifactId>shine-framework-spring-template</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>io.github.SilenceShine</groupId>
-            <artifactId>shine-framework-util</artifactId>
+            <artifactId>shine-framework-spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.SilenceShine</groupId>
+            <artifactId>shine-framework-template</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <artifactId>spring-context</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>

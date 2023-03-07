@@ -1,6 +1,12 @@
 package shine.framework.spring.cache.util;
 
-import cn.hutool.json.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -9,6 +15,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import shine.framework.util.core.Builder;
+import shine.framework.util.json.module.ShineModule;
 
 /**
  * redis配置构造工具类
@@ -96,7 +103,7 @@ public class RedisConfigUtil {
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
         mapper.registerModule(new JavaTimeModule());
-        mapper.registerModule(RelyModule.INSTANCE);
+        mapper.registerModule(ShineModule.INSTANCE);
         return new Jackson2JsonRedisSerializer<>(mapper, Object.class);
     }
 

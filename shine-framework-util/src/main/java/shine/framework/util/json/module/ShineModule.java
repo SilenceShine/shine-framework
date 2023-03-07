@@ -28,6 +28,8 @@ public final class ShineModule extends SimpleModule {
     private static final String GROUP_ID = "io.github.SilenceShine";
     private static final String ARTIFACT_ID = "shine-framework-util";
 
+    public static final ShineModule INSTANCE = new ShineModule();
+
     public ShineModule() {
         super(VersionUtil.parseVersion(VERSION, GROUP_ID, ARTIFACT_ID));
 
