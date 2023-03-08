@@ -10,45 +10,25 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>shine-framework-spring-core</artifactId>
+    <artifactId>shine-framework-spring-exception</artifactId>
 
     <dependencies>
 
         <dependency>
             <groupId>io.github.SilenceShine</groupId>
-            <artifactId>shine-framework-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.SilenceShine</groupId>
-            <artifactId>shine-framework-spring-util</artifactId>
-        </dependency>
-
-        <!--    spring data 分页    -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!--    webmvc统一返回    -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!--    function 响应式统一返回   -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webflux</artifactId>
-            <optional>true</optional>
+            <artifactId>shine-framework-spring-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>

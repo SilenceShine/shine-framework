@@ -10,16 +10,17 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>shine-framework-spring-util</artifactId>
+    <artifactId>shine-framework-spring-log</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>io.github.SilenceShine</groupId>
-            <artifactId>shine-framework-util</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>

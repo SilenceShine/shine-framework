@@ -60,6 +60,7 @@
         <module>shine-framework-jackson</module>
         <module>shine-framework-spring</module>
         <module>shine-framework-util</module>
+        <module>shine-framework-template</module>
     </modules>
 
     <dependencyManagement>
@@ -72,6 +73,16 @@
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-jackson</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-template</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

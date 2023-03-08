@@ -74,12 +74,19 @@ public class LogUtil {
         execute(object, Logger::isDebugEnabled, (logger, objects) -> logger.debug(message, objects), params);
     }
 
+    public static void trace(Object object, String message, Object... params) {
+        execute(object, Logger::isTraceEnabled, (logger, objects) -> logger.trace(message, objects), () -> params);
+    }
+
+    public static void trace(Object object, String message, Supplier<Object[]> params) {
+        execute(object, Logger::isTraceEnabled, (logger, objects) -> logger.trace(message, objects), params);
+    }
+
     private static void execute(Object object, Predicate<Logger> predicate, BiConsumer<Logger, Object[]> invoke, Supplier<Object[]> params) {
         Optional.ofNullable(object)
                 .map(LogUtil::generateLogger)
                 .filter(predicate)
                 .ifPresent(logger -> invoke.accept(logger, params.get()));
     }
-
 
 }
