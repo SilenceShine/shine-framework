@@ -3,6 +3,7 @@ package shine.framework.orm.mybatis.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
+@TableName(keepGlobalPrefix = true)
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor

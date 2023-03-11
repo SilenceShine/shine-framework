@@ -2,6 +2,8 @@ package shine.framework.orm.mybatis.handler;
 
 import shine.framework.orm.mybatis.entity.BaseEntity;
 
+import java.time.LocalDateTime;
+
 /**
  * @author SilenceShine
  * @since 1.0
@@ -14,12 +16,12 @@ public class BaseMetaObjectHandler extends MultipleMetaObjectHandler<BaseEntity>
 
     @Override
     public void fillInsert(BaseEntity baseEntity) {
-
+        baseEntity.setCreatedTime(LocalDateTime.now());
     }
 
     @Override
     public void fillUpdate(BaseEntity baseEntity) {
-
+        baseEntity.setUpdatedTime(LocalDateTime.now());
     }
 
 }

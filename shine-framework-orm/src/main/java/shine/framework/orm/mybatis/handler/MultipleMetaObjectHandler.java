@@ -15,8 +15,18 @@ public abstract class MultipleMetaObjectHandler<T> implements MetaObjectHandler 
 
     private final Class<T> tClass;
 
+    /**
+     * 填充插入字段数据
+     *
+     * @param t 实体对象
+     */
     public abstract void fillInsert(T t);
 
+    /**
+     * 填充更新字段数据
+     *
+     * @param t 实体对象
+     */
     public abstract void fillUpdate(T t);
 
     protected boolean check(MetaObject metaObject) {

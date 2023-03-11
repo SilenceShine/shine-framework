@@ -2,6 +2,7 @@ package shine.framework.orm.mybatis.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@TableName(keepGlobalPrefix = true)
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
