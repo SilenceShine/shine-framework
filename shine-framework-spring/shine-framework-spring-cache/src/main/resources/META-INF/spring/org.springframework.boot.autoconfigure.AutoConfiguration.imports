@@ -1,2 +1,2 @@
-shine.framework.spring.cache.config.RedisConfiguration
-shine.framework.spring.cache.config.ReactiveRedisConfiguration
+io.github.SilenceShine.shine.spring.cache.config.RedisConfiguration
+io.github.SilenceShine.shine.spring.cache.config.ReactiveRedisConfiguration
