@@ -14,12 +14,10 @@
     <url>https://github.com/SilenceShine/shine-framework.git</url>
 
     <properties>
-        <revision>0.3.1-SNAPSHOT</revision>
+        <revision>0.3.1</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
-        <repository.dir>maven-repository</repository.dir>
-        <github.global.server>io.github.SilenceShine</github.global.server>
 
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
@@ -29,7 +27,7 @@
         <spring-aot-maven-plugin.version>0.12.1</spring-aot-maven-plugin.version>
         <native-maven-plugin.version>0.9.18</native-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
-        <site-maven-plugin.version>0.12</site-maven-plugin.version>
+        <maven-repository-github-plugin.version>0.0.1</maven-repository-github-plugin.version>
 
         <!--    util    -->
         <reactor-core.version>3.5.3</reactor-core.version>
@@ -53,14 +51,6 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-        <repository>
-            <id>io.github.SilenceShine</id>
-            <name>maven-repository</name>
-            <url>file://${project.basedir}/${repository.dir}</url>
-        </repository>
-    </distributionManagement>
-
     <modules>
         <module>shine-framework-constant</module>
         <module>shine-framework-core</module>
@@ -70,6 +60,21 @@
         <module>shine-framework-util</module>
         <module>shine-framework-template</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>io.github.SilenceShine</id>
+            <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>Local</id>
+            <name>Local Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
@@ -227,34 +232,23 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven-deploy-plugin.version}</version>
+                    <groupId>io.github.SilenceShine</groupId>
+                    <artifactId>maven-repository-github-plugin</artifactId>
+                    <version>${maven-repository-github-plugin.version}</version>
                     <configuration>
-                        <altDeploymentRepository>
-                            maven.repo::default::file://${project.basedir}/${repository.dir}
-                        </altDeploymentRepository>
+                        <id>io.github.SilenceShine</id>
+                        <owner>SilenceShine</owner>
+                        <repository>maven-repository</repository>
+                        <branchRelease>release</branchRelease>
+                        <branchSnapshot>snapshot</branchSnapshot>
+                        <message>deploy shine-framework</message>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.github</groupId>
-                    <artifactId>site-maven-plugin</artifactId>
-                    <version>${site-maven-plugin.version}</version>
                     <executions>
                         <execution>
-                            <goals>
-                                <goal>site</goal>
-                            </goals>
                             <phase>deploy</phase>
-                            <configuration>
-                                <server>io.github.SilenceShine</server>
-                                <message>shine-framework</message>
-                                <repositoryName>maven-repository</repositoryName>
-                                <repositoryOwner>SilenceShine</repositoryOwner>
-                                <merge>true</merge>
-                                <outputDirectory>${project.basedir}/${repository.dir}</outputDirectory>
-                                <branch>refs/heads/mvn-repo</branch>
-                            </configuration>
+                            <goals>
+                                <goal>github</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
@@ -270,17 +264,13 @@
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
             </plugin>
-            <!--            <plugin>-->
-            <!--                <groupId>org.codehaus.mojo</groupId>-->
-            <!--                <artifactId>flatten-maven-plugin</artifactId>-->
-            <!--            </plugin>-->
-            <!--            <plugin>-->
-            <!--                <groupId>com.github.github</groupId>-->
-            <!--                <artifactId>site-maven-plugin</artifactId>-->
-            <!--            </plugin>-->
+            <plugin>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>maven-repository-github-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
