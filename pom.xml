@@ -187,7 +187,7 @@
                 <repository>
                     <id>io.github.SilenceShine</id>
                     <name>SilenceShine shine-framework Maven Packages</name>
-                    <url>https://maven.pkg.github.com/github用户名/github项目名</url>
+                    <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
                 </repository>
             </repositories>
         </profile>
