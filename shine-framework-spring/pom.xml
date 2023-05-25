@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -27,10 +27,10 @@
     </modules>
 
     <properties>
-        <spring-boot-dependencies.version>3.0.3</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>2022.0.1</spring-cloud-dependencies.version>
-        <spring-cloud-commons-dependencies.version>4.0.1</spring-cloud-commons-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC1</spring-cloud-alibaba-dependencies.version>
+        <spring-boot-dependencies.version>3.1.0</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
+        <spring-cloud-commons-dependencies.version>4.0.2</spring-cloud-commons-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC2</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-square-dependencies.version>0.5.0-SNAPSHOT</spring-cloud-square-dependencies.version>
 
         <mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
