@@ -14,7 +14,7 @@
     <url>https://github.com/SilenceShine/shine-framework.git</url>
 
     <properties>
-        <revision>0.4.1</revision>
+        <revision>0.4.2-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
