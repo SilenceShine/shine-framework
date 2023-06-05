@@ -14,7 +14,7 @@
     <url>https://github.com/SilenceShine/shine-framework.git</url>
 
     <properties>
-        <revision>0.4.2-SNAPSHOT</revision>
+        <revision>0.4.2</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
@@ -60,6 +60,63 @@
         <module>shine-framework-util</module>
         <module>shine-framework-template</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>SilenceShine Release</id>
+            <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+        </repository>
+        <repository>
+            <id>SilenceShine Snapshot</id>
+            <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/snapshot</url>
+        </repository>
+    </repositories>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>io.github.SilenceShine</id>
+                    <name>SilenceShine shine-framework Maven Packages</name>
+                    <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
+                </repository>
+            </repositories>
+            <distributionManagement>
+                <repository>
+                    <id>io.github.SilenceShine</id>
+                    <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>SilenceShine maven-repository-plugin</id>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>github</id>
+                    <name>SilenceShine maven-repository-plugin Maven Packages</name>
+                    <url>https://maven.pkg.github.com/SilenceShine/maven-repository-plugin</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <distributionManagement>
+                <repository>
+                    <id>Local</id>
+                    <name>Local Repository</name>
+                    <url>file://${project.build.directory}/mvn-repo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <dependencyManagement>
         <dependencies>
@@ -164,52 +221,6 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>github</id>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <url>https://repo1.maven.org/maven2</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>io.github.SilenceShine</id>
-                    <name>SilenceShine shine-framework Maven Packages</name>
-                    <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
-                </repository>
-            </repositories>
-            <distributionManagement>
-                <repository>
-                    <id>io.github.SilenceShine</id>
-                    <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>SilenceShine maven-repository-plugin</id>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>github</id>
-                    <name>SilenceShine maven-repository-plugin Maven Packages</name>
-                    <url>https://maven.pkg.github.com/SilenceShine/maven-repository-plugin</url>
-                </pluginRepository>
-            </pluginRepositories>
-            <distributionManagement>
-                <repository>
-                    <id>Local</id>
-                    <name>Local Repository</name>
-                    <url>file://${project.build.directory}/mvn-repo</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -298,10 +309,10 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>io.github.SilenceShine</groupId>
-                <artifactId>maven-repository-github-plugin</artifactId>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>io.github.SilenceShine</groupId>-->
+            <!--                <artifactId>maven-repository-github-plugin</artifactId>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 
