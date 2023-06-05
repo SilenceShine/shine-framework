@@ -11,12 +11,12 @@ shine-framework
 <repositories>
     <!--  方式一 : 引入依赖github公开仓库的包  -->
     <repository>
-        <id>io.github.SilenceShine</id>
+        <id>SilenceShine maven-repository release</id>
         <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
     </repository>
     <repository>
-        <id>io.github.SilenceShine</id>
-        <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+        <id>SilenceShine maven-repository snapshot</id>
+        <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/snapshot</url>
     </repository>
     <!--  方式二 : 引入GitHub Packages 的包 但是必须再setting.xml中指定相应的token -->
     <repository>
