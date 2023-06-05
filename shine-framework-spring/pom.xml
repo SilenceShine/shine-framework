@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -21,9 +21,15 @@
         <module>shine-framework-spring-exception</module>
         <module>shine-framework-spring-jackson</module>
         <module>shine-framework-spring-log</module>
+        <module>shine-framework-spring-orm</module>
         <module>shine-framework-spring-template</module>
         <module>shine-framework-spring-util</module>
     </modules>
+
+    <properties>
+        <spring-boot-dependencies.version>3.1.0</spring-boot-dependencies.version>
+        <mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -35,32 +41,54 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-cache</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-commons-dependencies</artifactId>
-                <version>${spring-cloud-commons-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-core</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-square-dependencies</artifactId>
-                <version>${spring-cloud-square-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-constant</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-env</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-exception</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-jackson</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-template</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
