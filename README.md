@@ -1,20 +1,33 @@
 # shine-framework
+
 shine-framework
 
 ### settings.xml
 
-###  pom.xml
+### pom.xml
 
 ```xml
+
 <repositories>
+    <!--  方式一 : 引入依赖github公开仓库的包  -->
     <repository>
         <id>io.github.SilenceShine</id>
         <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+    </repository>
+    <repository>
+        <id>io.github.SilenceShine</id>
+        <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+    </repository>
+    <!--  方式二 : 引入GitHub Packages 的包 但是必须再setting.xml中指定相应的token -->
+    <repository>
+        <id>GitHub Shine-Framework</id>
+        <url>https://maven.pkg.github.com/SilenceShine/shine-framework</url>
     </repository>
 </repositories>
 ```
 
 ```xml
+
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -29,6 +42,7 @@ shine-framework
 ```
 
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
