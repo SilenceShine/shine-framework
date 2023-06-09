@@ -3,7 +3,7 @@ package io.github.SilenceShine.shine.orm.mybatis.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.github.SilenceShine.shine.orm.mybatis.handler.MultipleMetaObjectHandler;
+import io.github.SilenceShine.shine.orm.mybatis.handler.AbstractMetaObjectHandler;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * id entity 通用填充类 {@link  MultipleMetaObjectHandler}
+ * id entity 通用填充类 {@link  AbstractMetaObjectHandler}
  *
  * @author SilenceShine
  * @since 1.0

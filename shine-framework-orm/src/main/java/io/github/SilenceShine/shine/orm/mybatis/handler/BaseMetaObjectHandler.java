@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  * @author SilenceShine
  * @since 1.0
  */
-public class BaseMetaObjectHandler extends MultipleMetaObjectHandler<BaseEntity> {
+public class BaseMetaObjectHandler extends AbstractMetaObjectHandler<BaseEntity> {
 
     public BaseMetaObjectHandler() {
         super(BaseEntity.class);

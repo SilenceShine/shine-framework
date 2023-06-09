@@ -1,52 +1,37 @@
 package io.github.SilenceShine.shine.orm.mybatis.handler;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
+
+import java.util.List;
 
 /**
  * @author SilenceShine
+ * @github <a href="https://github.com/SilenceShine">SilenceShine</a>
  * @since 1.0
  */
-@Slf4j
-@AllArgsConstructor
-public abstract class MultipleMetaObjectHandler<T> implements MetaObjectHandler {
+@SuppressWarnings({"rawtypes", "unchecked"})
+public class MultipleMetaObjectHandler extends AbstractMetaObjectHandler<Object> {
 
-    private final Class<T> tClass;
+    private final List<AbstractMetaObjectHandler> handlers;
 
-    /**
-     * 填充插入字段数据
-     *
-     * @param t 实体对象
-     */
-    public abstract void fillInsert(T t);
+    public MultipleMetaObjectHandler(List<AbstractMetaObjectHandler> handlers) {
+        super(null);
+        this.handlers = handlers;
+    }
 
-    /**
-     * 填充更新字段数据
-     *
-     * @param t 实体对象
-     */
-    public abstract void fillUpdate(T t);
-
+    @Override
     protected boolean check(MetaObject metaObject) {
-        return tClass.isAssignableFrom(metaObject.getClass());
+        return true;
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void insertFill(MetaObject metaObject) {
-        if (tClass.isAssignableFrom(metaObject.getClass())) {
-            fillInsert((T) metaObject);
-        }
+    public void fillInsert(Object o) {
+        handlers.forEach(handler -> handler.fillInsert(o));
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void updateFill(MetaObject metaObject) {
-        if (tClass.isAssignableFrom(metaObject.getClass())) {
-            fillUpdate((T) metaObject);
-        }
+    public void fillUpdate(Object o) {
+        handlers.forEach(handler -> handler.fillUpdate(o));
     }
 
 }
