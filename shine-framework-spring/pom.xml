@@ -83,6 +83,11 @@
             </dependency>
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-spring-template</artifactId>
                 <version>${revision}</version>
             </dependency>
