@@ -22,6 +22,7 @@
         <module>shine-framework-spring-jackson</module>
         <module>shine-framework-spring-log</module>
         <module>shine-framework-spring-orm</module>
+        <module>shine-framework-spring-starter</module>
         <module>shine-framework-spring-template</module>
         <module>shine-framework-spring-util</module>
     </modules>
@@ -73,6 +74,11 @@
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-spring-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.SilenceShine</groupId>
+                <artifactId>shine-framework-spring-orm</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
