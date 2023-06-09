@@ -65,10 +65,16 @@
         <repository>
             <id>SilenceShine Release</id>
             <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
         <repository>
             <id>SilenceShine Snapshot</id>
             <url>https://raw.githubusercontent.com/SilenceShine/maven-repository/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
