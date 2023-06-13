@@ -1,2 +1,2 @@
 org.springframework.boot.env.EnvironmentPostProcessor=\
-cn.xuansy.rely.dependent.spring.env.DependentPropertySourceEnvironmentPostProcessor
+io.github.SilenceShine.shine.spring.env.ShinePropertySourceEnvironmentPostProcessor
