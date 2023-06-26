@@ -30,6 +30,7 @@
         <maven-repository-github-plugin.version>0.0.1</maven-repository-github-plugin.version>
 
         <!--    util    -->
+        <hibernate-validator-parent.version>8.0.0.Final</hibernate-validator-parent.version>
         <reactor-core.version>3.5.3</reactor-core.version>
         <mutiny.version>2.1.0</mutiny.version>
         <slf4j-api.version>2.0.6</slf4j-api.version>
@@ -38,6 +39,7 @@
         <oshi.version>6.4.0</oshi.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <easyexcel.version>3.3.2</easyexcel.version>
         <lombok.version>1.18.26</lombok.version>
     </properties>
 
@@ -126,6 +128,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator-parent</artifactId>
+                <version>${hibernate-validator-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-constant</artifactId>
@@ -220,6 +229,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-core</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
