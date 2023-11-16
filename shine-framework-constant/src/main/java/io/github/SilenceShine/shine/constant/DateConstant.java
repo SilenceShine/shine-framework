@@ -17,8 +17,6 @@ public interface DateConstant {
     long DAY = 24 * HOUR;
     long WEEK = 7 * DAY;
 
-    String PATTERN = "yyyy-MM-dd HH:mm:ss";
-
     TimeZone TIME_ZONE = TimeZone.getTimeZone("GMT+8");
 
 }

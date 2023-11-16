@@ -22,8 +22,8 @@ public class ExceptionUtil {
         return bizException(code, message.get());
     }
 
-    public static Supplier<? extends BizException> bizException(int code, String message) {
-        return () -> new BizException(code, message);
+    public static Supplier<? extends BizException> bizException(int code, String message, Object... args) {
+        return () -> new BizException(code, message, args);
     }
 
     public static Supplier<? extends SysException> sysException(String message) {
@@ -34,8 +34,8 @@ public class ExceptionUtil {
         return sysException(code, message.get());
     }
 
-    public static Supplier<? extends SysException> sysException(int code, String message) {
-        return () -> new SysException(code, message);
+    public static Supplier<? extends SysException> sysException(int code, String message, Object... args) {
+        return () -> new SysException(code, message, args);
     }
 
 }

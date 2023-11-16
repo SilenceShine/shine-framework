@@ -17,10 +17,10 @@
         <revision>0.4.3-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
 
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
         <maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
@@ -30,17 +30,17 @@
         <maven-repository-github-plugin.version>0.0.1</maven-repository-github-plugin.version>
 
         <!--    util    -->
-        <hibernate-validator-parent.version>8.0.0.Final</hibernate-validator-parent.version>
+        <hibernate-validator-parent.version>8.0.1.Final</hibernate-validator-parent.version>
         <reactor-core.version>3.5.3</reactor-core.version>
         <mutiny.version>2.1.0</mutiny.version>
         <slf4j-api.version>2.0.6</slf4j-api.version>
-        <hutool.version>5.8.12</hutool.version>
+        <hutool.version>5.8.23</hutool.version>
         <jackson.version>2.14.1</jackson.version>
-        <oshi.version>6.4.0</oshi.version>
-        <snakeyaml.version>2.0</snakeyaml.version>
-        <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <oshi.version>6.4.7</oshi.version>
+        <snakeyaml.version>2.2</snakeyaml.version>
+        <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
         <easyexcel.version>3.3.2</easyexcel.version>
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <developers>
@@ -136,6 +136,18 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-constant</artifactId>
                 <version>${revision}</version>
@@ -189,11 +201,6 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -280,6 +287,10 @@
                         <updatePomFile>true</updatePomFile>
                         <flattenMode>resolveCiFriendliesOnly</flattenMode>
                         <flattenDependencyMode>all</flattenDependencyMode>
+                        <!--            解析子模块的dependencyManagement            -->
+                        <!--                        <pomElements>-->
+                        <!--                            <dependencyManagement>resolve</dependencyManagement>-->
+                        <!--                        </pomElements>-->
                     </configuration>
                     <executions>
                         <execution>

@@ -9,7 +9,7 @@ import io.github.SilenceShine.shine.util.log.LogUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
-import java.net.URL;
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -31,7 +31,8 @@ public class EasyExcelUtil {
     }
 
     public static <E> void importCos(String url, Class<E> excelVo, ReadListener<E> listener, int headRowNumber) {
-        try (InputStream inputStream = new URL(url).openStream()) {
+        URI uri = URI.create(url);
+        try (InputStream inputStream = uri.toURL().openStream()) {
             EasyExcel.read(inputStream, excelVo, listener)
                 .sheet()
                 .headRowNumber(headRowNumber)

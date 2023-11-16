@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.SilenceShine.shine.util.core.Builder;
+import io.github.SilenceShine.shine.util.json.module.ShineModule;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -14,8 +16,6 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import io.github.SilenceShine.shine.util.core.Builder;
-import io.github.SilenceShine.shine.util.json.module.ShineModule;
 
 /**
  * redis配置构造工具类
@@ -35,13 +35,13 @@ public class RedisConfigUtil {
         StringRedisSerializer keySerializer = StringRedisSerializer.UTF_8;
         Jackson2JsonRedisSerializer<Object> valueSerializer = buildJackson2JsonRedisSerializer();
         return Builder.of(RedisTemplate<String, V>::new)
-                .with(RedisTemplate::setConnectionFactory, connectionFactory)
-                .with(RedisTemplate::setKeySerializer, keySerializer)
-                .with(RedisTemplate::setValueSerializer, valueSerializer)
-                .with(RedisTemplate::setHashKeySerializer, keySerializer)
-                .with(RedisTemplate::setHashValueSerializer, valueSerializer)
-                .with(RedisTemplate::afterPropertiesSet)
-                .build();
+            .with(RedisTemplate::setConnectionFactory, connectionFactory)
+            .with(RedisTemplate::setKeySerializer, keySerializer)
+            .with(RedisTemplate::setValueSerializer, valueSerializer)
+            .with(RedisTemplate::setHashKeySerializer, keySerializer)
+            .with(RedisTemplate::setHashValueSerializer, valueSerializer)
+            .with(RedisTemplate::afterPropertiesSet)
+            .build();
     }
 
     /**
@@ -64,13 +64,13 @@ public class RedisConfigUtil {
         StringRedisSerializer keySerializer = StringRedisSerializer.UTF_8;
         JdkSerializationRedisSerializer valueSerializer = new JdkSerializationRedisSerializer();
         return Builder.of(StringRedisTemplate::new)
-                .with(RedisTemplate::setConnectionFactory, connectionFactory)
-                .with(RedisTemplate::setKeySerializer, keySerializer)
-                .with(RedisTemplate::setValueSerializer, valueSerializer)
-                .with(RedisTemplate::setHashKeySerializer, keySerializer)
-                .with(RedisTemplate::setHashValueSerializer, valueSerializer)
-                .with(RedisTemplate::afterPropertiesSet)
-                .build();
+            .with(RedisTemplate::setConnectionFactory, connectionFactory)
+            .with(RedisTemplate::setKeySerializer, keySerializer)
+            .with(RedisTemplate::setValueSerializer, valueSerializer)
+            .with(RedisTemplate::setHashKeySerializer, keySerializer)
+            .with(RedisTemplate::setHashValueSerializer, valueSerializer)
+            .with(RedisTemplate::afterPropertiesSet)
+            .build();
     }
 
     /**
@@ -85,13 +85,13 @@ public class RedisConfigUtil {
                                                                    RedisSerializer<V> valueRedisSerializer) {
         StringRedisSerializer keySerializer = StringRedisSerializer.UTF_8;
         return Builder.of(RedisTemplate<String, V>::new)
-                .with(RedisTemplate::setConnectionFactory, connectionFactory)
-                .with(RedisTemplate::setKeySerializer, keySerializer)
-                .with(RedisTemplate::setValueSerializer, valueRedisSerializer)
-                .with(RedisTemplate::setHashKeySerializer, keySerializer)
-                .with(RedisTemplate::setHashValueSerializer, valueRedisSerializer)
-                .with(RedisTemplate::afterPropertiesSet)
-                .build();
+            .with(RedisTemplate::setConnectionFactory, connectionFactory)
+            .with(RedisTemplate::setKeySerializer, keySerializer)
+            .with(RedisTemplate::setValueSerializer, valueRedisSerializer)
+            .with(RedisTemplate::setHashKeySerializer, keySerializer)
+            .with(RedisTemplate::setHashValueSerializer, valueRedisSerializer)
+            .with(RedisTemplate::afterPropertiesSet)
+            .build();
     }
 
     /**

@@ -1,5 +1,7 @@
 package io.github.SilenceShine.shine.core.exception;
 
+import lombok.Getter;
+
 import java.io.Serial;
 import java.util.Arrays;
 
@@ -12,6 +14,7 @@ public class BaseException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 1L;
     private static final String TEMPLATE = "code:[%s] message:[%s]";
+    @Getter
     private final int code;
     private final String message;
     private final Object[] args;
@@ -31,18 +34,14 @@ public class BaseException extends RuntimeException {
         this.args = args;
     }
 
-    public int getCode() {
-        return code;
+    private static String buildRealMessage(int code, String message, Object... args) {
+        String finalMessage = String.format(TEMPLATE, code, message);
+        return args.length > 0 ? String.format(finalMessage, Arrays.toString(args)) : finalMessage;
     }
 
     @Override
     public String getMessage() {
         return buildRealMessage(code, message, args);
-    }
-
-    private static String buildRealMessage(int code, String message, Object... args) {
-        String finalMessage = String.format(TEMPLATE, code, message);
-        return args.length > 0 ? String.format(finalMessage, Arrays.toString(args)) : finalMessage;
     }
 
 }

@@ -15,6 +15,11 @@
 
         <dependency>
             <groupId>io.github.SilenceShine</groupId>
+            <artifactId>shine-framework-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.SilenceShine</groupId>
             <artifactId>shine-framework-orm</artifactId>
         </dependency>
 

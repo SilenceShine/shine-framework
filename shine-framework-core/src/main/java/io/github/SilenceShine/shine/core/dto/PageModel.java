@@ -1,7 +1,10 @@
 package io.github.SilenceShine.shine.core.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 /**
  * 分页Model
@@ -11,26 +14,31 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public abstract class PageModel<T> {
 
     /**
      * 分页开始
      */
-    private Integer start = 1;
+    @Min(value = 1, message = "start只能从1开始")
+    @NotNull(message = "start不能为空")
+    Integer start = 1;
 
     /**
      * 条数
      */
-    private Integer limit = 10;
+    @Min(value = 1, message = "limit只能从1开始")
+    @NotNull(message = "start不能为空")
+    Integer limit = 10;
 
     /**
      * 是否正序
      */
-    private Boolean isAsc;
+    Boolean isAsc = true;
 
     /**
      * 排序字段 使用","隔开
      */
-    private String orderBy;
+    String orderBy;
 
 }

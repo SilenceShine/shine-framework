@@ -1,4 +1,4 @@
-package io.github.SilenceShine.shine.jackson.dser;
+package io.github.SilenceShine.shine.jackson.deser;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

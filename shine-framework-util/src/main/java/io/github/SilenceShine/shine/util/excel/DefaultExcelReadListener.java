@@ -2,6 +2,7 @@ package io.github.SilenceShine.shine.util.excel;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @github <a href="https://github.com/SilenceShine">SilenceShine</a>
  * @since 1.0
  */
+@Getter
 public class DefaultExcelReadListener<E extends DefaultExcelData> extends AnalysisEventListener<E> {
 
     private final List<E> list = new ArrayList<>();
@@ -24,10 +26,6 @@ public class DefaultExcelReadListener<E extends DefaultExcelData> extends Analys
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
 
-    }
-
-    public List<E> getList() {
-        return list;
     }
 
     public int getRow(AnalysisContext context) {

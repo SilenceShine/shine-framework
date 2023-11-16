@@ -69,7 +69,7 @@
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-spring-jackson</artifactId>
-                <version>${revision}</version>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
@@ -94,12 +94,12 @@
             <dependency>
                 <groupId>io.github.SilenceShine</groupId>
                 <artifactId>shine-framework-spring-util</artifactId>
-                <version>${revision}</version>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
