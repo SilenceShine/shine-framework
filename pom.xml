@@ -34,7 +34,7 @@
         <reactor-core.version>3.5.3</reactor-core.version>
         <mutiny.version>2.1.0</mutiny.version>
         <slf4j-api.version>2.0.6</slf4j-api.version>
-        <hutool.version>5.8.23</hutool.version>
+        <hutool.version>5.8.25</hutool.version>
         <jackson.version>2.14.1</jackson.version>
         <oshi.version>6.4.7</oshi.version>
         <snakeyaml.version>2.2</snakeyaml.version>
