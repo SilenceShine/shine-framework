@@ -41,6 +41,16 @@ public class DateUtils extends DateUtil {
         return getAscTemporals(start, end, LocalDate::plusDays, LocalDate::isBefore);
     }
 
+    /**
+     * 获取两个 Temporal 之间包含了多少个 Temporal
+     *
+     * @param start           开始 Temporal
+     * @param end             结束 Temporal
+     * @param function        偏移单位function
+     * @param compareFunction 比较function
+     * @param <T>             Temporal
+     * @return List<T>
+     */
     public static <T extends Temporal> List<T> getAscTemporals(T start, T end, BiFunction<T, Integer, T> function, BiFunction<T, T, Boolean> compareFunction) {
         if (compareFunction.apply(end, start)) {
             throw new IllegalArgumentException("start Temporal must before Temporal end!");
