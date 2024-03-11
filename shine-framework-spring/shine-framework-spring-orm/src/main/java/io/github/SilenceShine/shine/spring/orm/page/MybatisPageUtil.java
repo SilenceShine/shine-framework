@@ -38,13 +38,27 @@ public class MybatisPageUtil extends PageUtil {
         return page;
     }
 
+//    public static <T> void recursion(IPage<T> page, Function<IPage<T>, IPage<T>> function, Consumer<List<T>> consumer) {
+//        LogUtil.debug(log, "mybatis current:{} size:{} total:{}", page.getCurrent(), page.getSize(), page.getTotal());
+//        IPage<T> iPage = function.apply(page);
+//        consumer.accept(iPage.getRecords());
+//        if (iPage.getCurrent() >= iPage.getPages()) return;
+//        page.setCurrent(iPage.getCurrent() + 1);
+//        recursion(iPage, function, consumer);
+//    }
+
     public static <T> void recursion(IPage<T> page, Function<IPage<T>, IPage<T>> function, Consumer<List<T>> consumer) {
+        recursionExecute(page, function, consumer);
+        while (page.getCurrent() < page.getPages()) {
+            page.setCurrent(page.getCurrent() + 1);
+            recursion(page, function, consumer);
+        }
+    }
+
+    public static <T> void recursionExecute(IPage<T> page, Function<IPage<T>, IPage<T>> function, Consumer<List<T>> consumer) {
         LogUtil.debug(log, "mybatis current:{} size:{} total:{}", page.getCurrent(), page.getSize(), page.getTotal());
         IPage<T> iPage = function.apply(page);
         consumer.accept(iPage.getRecords());
-        if (iPage.getCurrent() >= iPage.getPages()) return;
-        page.setCurrent(iPage.getCurrent() + 1);
-        recursion(iPage, function, consumer);
     }
 
 }
