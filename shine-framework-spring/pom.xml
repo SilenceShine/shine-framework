@@ -28,8 +28,7 @@
     </modules>
 
     <properties>
-        <spring-boot-dependencies.version>3.2.0</spring-boot-dependencies.version>
-        <mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
+        <spring-boot-dependencies.version>3.3.2</spring-boot-dependencies.version>
     </properties>
 
     <dependencyManagement>
@@ -98,8 +97,13 @@
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot-autoconfigure</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,5 +1,6 @@
 package io.github.SilenceShine.shine.util.log;
 
+import cn.hutool.core.lang.ansi.AnsiColor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,10 @@ public class LogUtil {
         // object
         Class<?> clazz = object instanceof Class ? (Class<?>) object : object.getClass();
         return LOG_CLASS_CACHE.computeIfAbsent(clazz, LoggerFactory::getLogger);
+    }
+
+    public static Object[] params(AnsiColor color, Object... params) {
+        return (params == null || params.length == 0) ? new Object[0] : params;
     }
 
     public static Object[] params(Object... params) {
@@ -84,9 +89,9 @@ public class LogUtil {
 
     private static void execute(Object object, Predicate<Logger> predicate, BiConsumer<Logger, Object[]> invoke, Supplier<Object[]> params) {
         Optional.ofNullable(object)
-                .map(LogUtil::generateLogger)
-                .filter(predicate)
-                .ifPresent(logger -> invoke.accept(logger, params.get()));
+            .map(LogUtil::generateLogger)
+            .filter(predicate)
+            .ifPresent(logger -> invoke.accept(logger, params.get()));
     }
 
 }

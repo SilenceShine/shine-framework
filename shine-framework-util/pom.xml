@@ -17,7 +17,7 @@
             <groupId>io.github.SilenceShine</groupId>
             <artifactId>shine-framework-constant</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -52,6 +52,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
         </dependency>
 
     </dependencies>
