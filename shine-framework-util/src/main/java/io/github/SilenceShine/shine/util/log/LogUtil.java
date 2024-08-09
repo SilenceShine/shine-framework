@@ -1,6 +1,7 @@
 package io.github.SilenceShine.shine.util.log;
 
 import cn.hutool.core.lang.ansi.AnsiColor;
+import cn.hutool.core.lang.ansi.AnsiEncoder;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,12 +40,21 @@ public class LogUtil {
         return LOG_CLASS_CACHE.computeIfAbsent(clazz, LoggerFactory::getLogger);
     }
 
-    public static Object[] params(AnsiColor color, Object... params) {
-        return (params == null || params.length == 0) ? new Object[0] : params;
+    public static Object[] params(AnsiColor ansiColor, Object... params) {
+        return (params == null || params.length == 0) ? new Object[0] : color(ansiColor, params);
     }
 
     public static Object[] params(Object... params) {
         return (params == null || params.length == 0) ? new Object[0] : params;
+    }
+
+    private static Object[] color(AnsiColor color, Object... params) {
+        Object[] newParams = new Object[params.length];
+        for (int i = 0; i < params.length; i++) {
+            String encode = AnsiEncoder.encode(color, params[i]);
+            newParams[i] = encode;
+        }
+        return newParams;
     }
 
     public static void info(Object object, String message, Object... params) {
