@@ -17,11 +17,10 @@ import lombok.Setter;
  * @author SilenceShine
  * @since 1.0
  */
-@Getter
-@Setter
 public class JacksonUtil {
 
-    private static ObjectMapper objectMapper;
+    @Getter
+    private static final ObjectMapper objectMapper;
 
     static {
         objectMapper = new ObjectMapper();
