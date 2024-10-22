@@ -26,7 +26,7 @@ public class JacksonUtil {
     static {
         objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.registerModule(new ShineModule());
+        objectMapper.registerModule(ShineModule.INSTANCE);
     }
 
     /**
